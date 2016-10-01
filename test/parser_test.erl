@@ -4,8 +4,7 @@
 -include_lib("irc_parser.hrl").
 
 -define(expect_parse_(Message, Expected),
-        Toks = irc_parser_lexer:tokenize(Message),
-        Got = irc_parser_parser:parse(Toks),
+        Got = irc_parser:parse(Message),
         ?_assertEqual(Expected, Got)).
 
 motd_test_() ->
