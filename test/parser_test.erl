@@ -8,10 +8,10 @@
         ?_assertEqual(Expected, Got)).
 
 motd_test_() ->
-    ?expect_parse_(":asdf.irc 372 somenick :- motd text",
-                   #ircmesg{
-                      prefix="asdf.irc",
-                      command="372",
-                      params=[
-                              "somenick",
-                              "- motd text"]}).
+    Expectation = #ircmesg{
+                     prefix="asdf.irc",
+                     command="372",
+                     params=[
+                             "somenick",
+                             "- motd text"]},
+    ?expect_parse_(":asdf.irc 372 somenick :- motd text", Expectation).
